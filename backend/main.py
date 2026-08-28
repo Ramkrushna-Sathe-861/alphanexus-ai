@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from api.market import router as market_router
 
 app = FastAPI()
 
@@ -25,3 +25,5 @@ def health_check():
     return{
         "status":"healthy"
     }
+
+app.include_router(market_router)
